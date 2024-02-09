@@ -1,0 +1,25 @@
+# @name get-poll //Frameworks NodeJs id
+GET http://localhost:3333/polls/b2d02afd-886f-4df3-9f12-e199f38a8c4a 
+
+###
+
+# @name create-poll
+
+POST http://localhost:3333/polls
+Content-Type: application/json
+
+{
+  "title": "Frameworks NodeJs",
+  "options": ["Express", "Fastify", "NestJS"]
+}
+
+###
+
+# @name vote-on-poll //Frameworks NodeJs id
+
+POST http://localhost:3333/polls/b2d02afd-886f-4df3-9f12-e199f38a8c4a/votes
+Content-Type: application/json
+
+{
+  "pollOptionId": "a83f6acf-27c7-4ba1-aa1b-a8ef12d2e4ae"
+}
