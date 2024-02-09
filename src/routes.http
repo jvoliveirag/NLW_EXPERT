@@ -4,7 +4,7 @@ GET http://localhost:3333/polls
 ###
 
 # @name get-poll //Frameworks NodeJs id
-GET http://localhost:3333/polls/a 
+GET http://localhost:3333/polls/aa86767c-1902-4ba0-b3fb-0fe3e6f5d989
 
 ###
 

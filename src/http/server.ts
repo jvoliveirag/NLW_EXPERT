@@ -1,4 +1,5 @@
 import cookie from "@fastify/cookie";
+import cors from '@fastify/cors';
 import websocket from "@fastify/websocket";
 import fastify from "fastify";
 import { createPoll } from "./routes/create-poll";
@@ -8,8 +9,16 @@ import { voteOnPoll } from "./routes/vote-on-poll";
 import { pollResults } from "./ws/poll-results";
 
 // CONFIGURAR CORS
+// Configuração mais detalhada do CORS
+const corsOptions = {
+  origin: true, // ou uma lista de origens permitidas ['http://localhost:3000', 'https://seu-outro-app.com']
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // incluir credenciais (por exemplo, cookies)
+  optionsSuccessStatus: 204, // alguns navegadores (por exemplo, Chrome) podem retornar 204
+};
 
 const app = fastify()
+app.register(cors, corsOptions)
 
 app.register(cookie, {
   secret: "my-secret", // for cookies signature
